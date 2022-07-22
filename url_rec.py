@@ -15,22 +15,18 @@ def uploader():
     r = sr.Recognizer()
     language = request.args.get('lang', type=str)
     url = request.args.get('audiourl')
-    print("input lang and url")
     #urllib.request.urlretrieve(url, file)
     response = requests.get(url)
     open('audio.wav', "wb").write(response.content)
-    print('create file')
 
     sound = am.from_file('audio.wav')
     sound = sound.set_frame_rate(8000)
     sound.export('audio.wav', format='wav')
-    print('convert to wav.')
 
     with sr.AudioFile('audio.wav') as source:
         #audio = r.listen(source)
         audio = r.record(source)
         text = r.recognize_google(audio, language=language)
-    print('recognize audio')
 
 
     return jsonify({"text":text})
