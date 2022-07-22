@@ -2,7 +2,7 @@
 from flask import Flask, request, jsonify
 import speech_recognition as sr
 import requests
-from ffprobe import FFProbe
+#from ffprobe import FFProbe
 from pydub import AudioSegment as am
 
 
