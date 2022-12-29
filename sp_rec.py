@@ -6,8 +6,6 @@ import requests
 from pydub import AudioSegment as am
 
 
-
-
 app = Flask(__name__)
 	
 @app.route('/sp2txt')
