@@ -1,1 +1,1 @@
-web: gunicorn url_rec:app
+web: gunicorn sp_rec:app
